@@ -22,12 +22,31 @@
             </grid-item>
         </grid>
         <my-title title="歌 单 推 荐"></my-title>
+        <grid :show-lr-borders="false" :show-vertical-dividers="false">
+            <grid-item>
+                <song-list-item>
+                    <img slot="img" src="../assets/images/1.jpg" alt="">
+                    <span slot="description"></span>
+                </song-list-item>
+            </grid-item>
+            <grid-item>
+                <song-list-item>
+                    <img slot="img" src="../assets/images/1.jpg" alt="">
+                </song-list-item>
+            </grid-item>
+            <grid-item>
+                <song-list-item>
+                    <img slot="img" src="../assets/images/1.jpg" alt="">
+                </song-list-item>
+            </grid-item>
+        </grid>
     </div>
 </template>
 
 <script>
 import { Swiper, Grid, GridItem } from "vux";
 import Mytitle from "../components/MyTitle";
+import SongListItem from "../components/SongListItem";
 
 const imgList = [
   {
@@ -52,7 +71,8 @@ export default {
     Swiper,
     Grid,
     GridItem,
-    "my-title": Mytitle
+    "my-title": Mytitle,
+    "song-list-item": SongListItem
   },
   data() {
     return {

@@ -1,3 +1,7 @@
+/**
+    传参：title
+    title:标题文字
+ */
 <template>
     <div class="my-title">
         {{title}}
@@ -7,6 +11,7 @@
 
 <script>
 export default {
+  name: "my-title",
   props: ["title"]
 };
 </script>
