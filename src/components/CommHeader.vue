@@ -3,8 +3,8 @@
         <x-header>
             <i slot="overwrite-left" class="fa fa-bars"></i>
             <grid slot="overwrite-title" class="my-title-content">
-                <grid-item link="/" class="my-title-item active">我的</grid-item>
-                <grid-item link="/music" class="my-title-item">音乐馆</grid-item>
+                <grid-item link="/music" class="my-title-item">我的</grid-item>
+                <grid-item link="/" class="my-title-item active">音乐馆</grid-item>
                 <grid-item link="/discovery" class="my-title-item">发现</grid-item>
             </grid>
             <i slot="right" class="fa fa-ellipsis-v"></i>

@@ -22,22 +22,20 @@
             </grid-item>
         </grid>
         <my-title title="歌 单 推 荐"></my-title>
-        <grid :show-lr-borders="false" :show-vertical-dividers="false">
-            <grid-item>
-                <song-list-item>
+        <grid class="song-list-item-wrap" :cols="3" :show-lr-borders="false" :show-vertical-dividers="false">
+            <grid-item class="song-list-item-content" v-for="i in 6" :key="i">
+                <song-list-item :frequency="42.2">
                     <img slot="img" src="../assets/images/1.jpg" alt="">
-                    <span slot="description"></span>
+                    <span slot="description">经典老歌，昨日重现 | 感觉走过好多年</span>
                 </song-list-item>
             </grid-item>
-            <grid-item>
-                <song-list-item>
-                    <img slot="img" src="../assets/images/1.jpg" alt="">
-                </song-list-item>
-            </grid-item>
-            <grid-item>
-                <song-list-item>
-                    <img slot="img" src="../assets/images/1.jpg" alt="">
-                </song-list-item>
+        </grid>
+        <my-title title="每 日 歌 曲 推 荐"></my-title>
+        <grid :cols="1">
+            <grid-item class="song-recommend-item-content">
+                <song-recommend-item>
+
+                </song-recommend-item>
             </grid-item>
         </grid>
     </div>
@@ -47,6 +45,7 @@
 import { Swiper, Grid, GridItem } from "vux";
 import Mytitle from "../components/MyTitle";
 import SongListItem from "../components/SongListItem";
+import SongRecommendItem from "../components/SongRecommendItem";
 
 const imgList = [
   {
@@ -72,7 +71,8 @@ export default {
     Grid,
     GridItem,
     "my-title": Mytitle,
-    "song-list-item": SongListItem
+    "song-list-item": SongListItem,
+    "song-recommend-item": SongRecommendItem
   },
   data() {
     return {
@@ -100,5 +100,23 @@ export default {
 }
 .fun-grid-item::after {
   border: 0 !important;
+}
+.song-list-item-wrap::before {
+  border-top: 0;
+}
+.song-list-item-content {
+  padding: 5px 2px;
+}
+.song-list-item-content:nth-child(1) {
+  padding-left: 0px;
+}
+.song-list-item-content:nth-child(4n) {
+  padding-left: 0px;
+}
+.song-list-item-content:nth-child(3n) {
+  padding-right: 0px;
+}
+.song-list-item-content::after {
+  border-bottom: 0;
 }
 </style>
