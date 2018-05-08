@@ -31,9 +31,9 @@
             </grid-item>
         </grid>
         <my-title title="每 日 歌 曲 推 荐"></my-title>
-        <grid :cols="1">
+        <grid :cols="1" class="song-recommend-item-wrap">
             <grid-item class="song-recommend-item-content">
-                <song-recommend-item>
+                <song-recommend-item :img="require('../assets/images/1.jpg')" :songName="'纸短情长'" :singer="'烟把儿乐队'" :album="'不知道'">
 
                 </song-recommend-item>
             </grid-item>
@@ -101,9 +101,11 @@ export default {
 .fun-grid-item::after {
   border: 0 !important;
 }
+.song-recommend-item-wrap::before,
 .song-list-item-wrap::before {
   border-top: 0;
 }
+.song-recommend-item-content,
 .song-list-item-content {
   padding: 5px 2px;
 }
@@ -118,5 +120,8 @@ export default {
 }
 .song-list-item-content::after {
   border-bottom: 0;
+}
+.song-recommend-item-content {
+  padding-left: 0;
 }
 </style>
