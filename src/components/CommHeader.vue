@@ -7,7 +7,7 @@
                 <grid-item link="/" class="my-title-item active">音乐馆</grid-item>
                 <grid-item link="/discovery" class="my-title-item">发现</grid-item>
             </grid>
-            <i slot="right" class="fa fa-ellipsis-v"></i>
+            <i slot="right" class="fa fa-plus"></i>
         </x-header>
         <search placeholder="给你推荐一首，纸短情长" :auto-fixed="false"></search>
     </div>
@@ -48,7 +48,7 @@ export default {
 .my-title-item.active {
   font-weight: bold !important;
 }
-.fa-ellipsis-v,
+.fa-plus,
 .fa-bars {
   font-size: 23px;
 }

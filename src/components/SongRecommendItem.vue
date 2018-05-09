@@ -1,16 +1,18 @@
 <template>
     <div>
-        <flexbox>
+        <flexbox class="list-content">
             <flexbox-item :span="2">
                 <div v-if="hasImg">
                     <img class="song-img" :src="img">
                 </div>
             </flexbox-item>
-            <flexbox-item :span="7">
+            <flexbox-item :span="9" class="list-item-song-info">
                 <div class="song-name">{{songName}}</div>
                 <div class="song-info">{{singer}} · {{album}}</div>
             </flexbox-item>
-            <flexbox-item :span="3">1</flexbox-item>
+            <flexbox-item :span="1">
+                <i class="fa fa-ellipsis-h"></i>
+            </flexbox-item>
         </flexbox>
     </div>
 </template>
@@ -50,9 +52,14 @@ export default {
 </script>
 
 <style scoped>
+.list-content {
+  line-height: 1;
+}
+.list-item-song-info {
+  line-height: 1.5;
+}
 .song-img {
-  max-width: 100%;
-  height: 58px;
+  width: 100%;
 }
 .song-name {
   color: #000;
@@ -61,6 +68,9 @@ export default {
 .song-info {
   color: grey;
   font-size: 12px;
+}
+.fa-ellipsis-h {
+  color: #9b9b9b;
 }
 </style>
 

@@ -9,9 +9,9 @@
             <slot name="img">
                 <img :src="img">
             </slot>
-            <div class="icon-content">
+            <div class="icon-content" v-if="hasFrequency">
                 <i class="fa fa-headphones"></i>
-                <span class="collection-frequency" v-if="hasFrequency">{{frequency}}万</span>
+                <span class="collection-frequency">{{frequency}}万</span>
                 <i class="fa fa-play-circle-o"></i>
             </div>
         </div>
@@ -46,8 +46,11 @@ export default {
 .song-list-img-content {
   position: relative;
   width: 100%;
-  max-height: 110px;
   overflow: hidden;
+  line-height: 1;
+}
+.song-list-img-content img {
+  width: 100%;
 }
 .song-list-description {
   font-size: 12px;
@@ -56,7 +59,7 @@ export default {
 }
 .icon-content {
   position: absolute;
-  bottom: 0;
+  bottom: 2px;
   left: 0;
   width: 100%;
   padding: 0 4px;

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="padding-bottom:50px;">
         <swiper :list="imgList" auto style="width:100%;margin:0 auto;" height="180px" dots-position="right"></swiper>
         <grid :cols="3" :show-lr-borders="false" :show-vertical-dividers="false">
             <grid-item class="fun-grid-item">
@@ -25,17 +25,24 @@
         <grid class="song-list-item-wrap" :cols="3" :show-lr-borders="false" :show-vertical-dividers="false">
             <grid-item class="song-list-item-content" v-for="i in 6" :key="i">
                 <song-list-item :frequency="42.2">
-                    <img slot="img" src="../assets/images/1.jpg" alt="">
+                    <img slot="img" src="../assets/images/squre.jpg" alt="">
                     <span slot="description">经典老歌，昨日重现 | 感觉走过好多年</span>
                 </song-list-item>
             </grid-item>
         </grid>
         <my-title title="每 日 歌 曲 推 荐"></my-title>
         <grid :cols="1" class="song-recommend-item-wrap">
-            <grid-item class="song-recommend-item-content">
-                <song-recommend-item :img="require('../assets/images/1.jpg')" :songName="'纸短情长'" :singer="'烟把儿乐队'" :album="'不知道'">
-
-                </song-recommend-item>
+            <grid-item class="song-recommend-item-content" v-for="i in 5" :key="i">
+                <song-recommend-item :img="require('../assets/images/squre.jpg')" :songName="'纸短情长'" :singer="'烟把儿乐队'" :album="'不知道'"></song-recommend-item>
+            </grid-item>
+        </grid>
+        <my-title title="新 歌 速 递"></my-title>
+        <grid class="song-list-item-wrap" :cols="3" :show-lr-borders="false" :show-vertical-dividers="false">
+            <grid-item class="song-list-item-content" v-for="i in 3" :key="i">
+                <song-list-item>
+                    <img slot="img" src="../assets/images/squre.jpg" alt="">
+                    <span slot="description">后来的我们 - 五月天</span>
+                </song-list-item>
             </grid-item>
         </grid>
     </div>
@@ -105,18 +112,24 @@ export default {
 .song-list-item-wrap::before {
   border-top: 0;
 }
+.song-recommend-item-content::after {
+  border: 0;
+}
 .song-recommend-item-content,
 .song-list-item-content {
   padding: 5px 2px;
 }
-.song-list-item-content:nth-child(1) {
-  padding-left: 0px;
-}
+.song-list-item-content:nth-child(1),
 .song-list-item-content:nth-child(4n) {
   padding-left: 0px;
+  padding-right: 2px;
 }
 .song-list-item-content:nth-child(3n) {
   padding-right: 0px;
+  padding-left: 2px;
+}
+.song-list-item-content:nth-child(3n-1) {
+  padding: 5px 1px;
 }
 .song-list-item-content::after {
   border-bottom: 0;
