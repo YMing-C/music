@@ -2,7 +2,7 @@
     <div id="app">
         <comm-header></comm-header>
         <router-view></router-view>
-        <comm-footer></comm-footer>
+        <comm-footer :img="require('./assets/images/squre1.jpg')" :songName="'体面'" :songLrc="'于文文'"></comm-footer>
     </div>
 </template>
 
