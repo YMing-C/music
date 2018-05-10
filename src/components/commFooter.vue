@@ -2,7 +2,7 @@
     <div class="footer">
         <flexbox :show-lr-borders="false" :show-vertical-dividers="false" :align="'center'">
             <flexbox-item :span="2" class="song-control-bar-item">
-                <div class="song-img-wrap">
+                <div class="song-img-wrap" :class="isPlaying ? 'rotate' : ''">
                     <img :src="img">
                 </div>
             </flexbox-item>
@@ -11,7 +11,7 @@
                 <p class="song-lrc">{{songLrc}}</p>
             </flexbox-item>
             <flexbox-item :span="3" class="song-control-bar-item song-control-more">
-                <i class="fa fa-play-circle-o"></i>
+                <i class="fa" :class="isPlaying ? 'fa-stop-circle-o' : 'fa-play-circle-o'"></i>
                 <i class="fa fa-bars"></i>
             </flexbox-item>
         </flexbox>
@@ -27,6 +27,11 @@ export default {
   components: {
     Flexbox,
     FlexboxItem
+  },
+  data() {
+    return {
+      isPlaying: false
+    };
   }
 };
 </script>
@@ -82,9 +87,21 @@ export default {
   color: #9b9b9b;
 }
 .fa-play-circle-o,
+.fa-stop-circle-o,
 .fa-bars {
   font-size: 26px;
   margin-left: 10px;
   color: #35495e;
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.rotate {
+  animation: rotate 10s linear infinite;
 }
 </style>
