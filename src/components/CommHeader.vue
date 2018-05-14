@@ -1,7 +1,7 @@
 <template>
     <div>
         <x-header>
-            <i slot="overwrite-left" class="fa fa-bars"></i>
+            <i slot="overwrite-left" class="fa fa-bars" @click="show"></i>
             <grid slot="overwrite-title" class="my-title-content">
                 <grid-item link="/music" class="my-title-item">我的</grid-item>
                 <grid-item link="/" class="my-title-item active">音乐馆</grid-item>
@@ -23,6 +23,11 @@ export default {
     Grid,
     GridItem,
     Search
+  },
+  methods: {
+    show: function() {
+      this.$emit("show");
+    }
   }
 };
 </script>
