@@ -11,15 +11,16 @@
                 <p class="song-lrc">{{songLrc}}</p>
             </flexbox-item>
             <flexbox-item :span="3" class="song-control-bar-item song-control-more">
-                <i class="fa" :class="isPlaying ? 'fa-stop-circle-o' : 'fa-play-circle-o'"></i>
-                <i class="fa fa-bars"></i>
+                <i class="fa" @click="isPlaying=!isPlaying" :class="isPlaying ? 'fa-stop-circle-o' : 'fa-play-circle-o'"></i>
+                <i class="fa fa-bars" @click="isActionsheet=!isActionsheet"></i>
             </flexbox-item>
         </flexbox>
+        <div v-transfer-dom></div>
     </div>
 </template>
 
 <script>
-import { Flexbox, FlexboxItem } from "vux";
+import { Flexbox, FlexboxItem, TransferDom } from "vux";
 
 export default {
   name: "comm-footer",
@@ -27,6 +28,9 @@ export default {
   components: {
     Flexbox,
     FlexboxItem
+  },
+  directives: {
+    TransferDom
   },
   data() {
     return {

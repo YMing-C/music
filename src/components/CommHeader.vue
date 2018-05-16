@@ -7,27 +7,39 @@
                 <grid-item link="/" class="my-title-item active">音乐馆</grid-item>
                 <grid-item link="/discovery" class="my-title-item">发现</grid-item>
             </grid>
-            <i slot="right" class="fa fa-plus"></i>
+            <i slot="right" class="fa fa-plus" @click="isAtionsheet=true"></i>
         </x-header>
         <search placeholder="给你推荐一首，纸短情长" :auto-fixed="false"></search>
+        <actionsheet v-model="isAtionsheet" :menus="topFunction"></actionsheet>
     </div>
 </template>
 
 
 <script>
-import { XHeader, Grid, GridItem, Search } from "vux";
+import { XHeader, Grid, GridItem, Search, Popover, Actionsheet } from "vux";
 
 export default {
   components: {
     XHeader,
     Grid,
     GridItem,
-    Search
+    Search,
+    Popover,
+    Actionsheet
   },
   methods: {
     show: function() {
       this.$emit("show");
     }
+  },
+  data() {
+    return {
+      isAtionsheet: false,
+      topFunction: {
+        menu1: "扫一扫",
+        menu2: "听歌识曲"
+      }
+    };
   }
 };
 </script>
