@@ -14,11 +14,11 @@
                 </group>
             </div>
 
-            <view-box>
-                <comm-header @show="showDrawer"></comm-header>
+            <comm-header @show="showDrawer"></comm-header>
+            <view-box :style="'height:calc(100% - 140px)'">
                 <router-view></router-view>
-                <comm-footer :img="require('./assets/images/squre1.jpg')" :songName="'体面'" :songLrc="'于文文'"></comm-footer>
             </view-box>
+            <comm-footer :img="require('./assets/images/squre1.jpg')" :songName="'体面'" :songLrc="'于文文'"></comm-footer>
         </drawer>
     </div>
 </template>

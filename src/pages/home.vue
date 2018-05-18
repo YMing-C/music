@@ -1,5 +1,5 @@
 <template>
-    <div style="padding-bottom:50px;">
+    <div>
         <swiper :list="imgList" auto style="width:100%;margin:0 auto;" height="180px" dots-position="right"></swiper>
         <grid :cols="3" :show-lr-borders="false" :show-vertical-dividers="false">
             <grid-item class="fun-grid-item">
@@ -104,6 +104,7 @@ export default {
 
 .fun-grid-item {
   color: rgb(47, 46, 46);
+  font-size: 16px;
 }
 .fun-grid-item::after {
   border: 0 !important;
