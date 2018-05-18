@@ -6,35 +6,40 @@
                     <img :src="img">
                 </div>
             </flexbox-item>
-            <flexbox-item :span="7" class="song-control-bar-item song-info">
+            <flexbox-item :span="6" class="song-control-bar-item song-info">
                 <div class="song-name">{{songName}}</div>
                 <p class="song-lrc">{{songLrc}}</p>
             </flexbox-item>
-            <flexbox-item :span="3" class="song-control-bar-item song-control-more">
+            <flexbox-item :span="4" class="song-control-bar-item song-control-more">
                 <i class="fa" @click="isPlaying=!isPlaying" :class="isPlaying ? 'fa-stop-circle-o' : 'fa-play-circle-o'"></i>
-                <i class="fa fa-bars" @click="isActionsheet=!isActionsheet"></i>
+                <i class="fa fa-bars" @click="isShow=!isShow"></i>
             </flexbox-item>
         </flexbox>
-        <div v-transfer-dom></div>
+        <div v-transfer-dom>
+            <playing-list :show="isShow"></playing-list>
+        </div>
     </div>
 </template>
 
 <script>
 import { Flexbox, FlexboxItem, TransferDom } from "vux";
+import PlayingList from "./PlayingList";
 
 export default {
   name: "comm-footer",
   props: ["img", "songName", "songLrc"],
   components: {
     Flexbox,
-    FlexboxItem
+    FlexboxItem,
+    "playing-list": PlayingList
   },
   directives: {
     TransferDom
   },
   data() {
     return {
-      isPlaying: false
+      isPlaying: false,
+      isShow: false
     };
   }
 };
@@ -86,6 +91,7 @@ export default {
 .song-control-more {
   height: 50px;
   line-height: 50px;
+  text-align: right;
 }
 .song-lrc {
   color: #9b9b9b;
@@ -96,6 +102,9 @@ export default {
   font-size: 26px;
   margin-left: 10px;
   color: #35495e;
+}
+.fa-bars {
+  margin-right: 30px;
 }
 @keyframes rotate {
   from {
